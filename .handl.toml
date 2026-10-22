@@ -1,0 +1,5 @@
+[dependencies]
+cli = { path = "../lib-cli/src/cli" }
+cli-c = { path = "../lib-cli/src/cli-c" }
+gh = { path = "src/gh" }
+gh-cli-host = { path = "src/gh-cli-host" }

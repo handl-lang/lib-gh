@@ -1,0 +1,5 @@
+--- gh -- generated SDK for the GitHub CLI (sdkgen-cli `cli` target).
+---
+--- `gh` is the generated port (types + arrow signatures), `gh-cli-host`
+--- the generated adapter over `cli-c` — `hnl sdkgen cli gh` regenerates.
+modules: ["gh", "gh-cli-host"]
