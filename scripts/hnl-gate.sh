@@ -1,19 +1,35 @@
 #!/usr/bin/env bash
 # hnl gate — `typecheck` + `lint` + `test` over this package's `.hnl` sources.
 #
-# Sources live in `src/` (one package per repo, ADR-0128 split). Nothing else
-# covers them — `cargo` never sees `.hnl`.
+# Committed sources live in `src/` (one package per repo, ADR-0128 split);
+# the generated port/adapter pair is emitted under `generated/` from the
+# committed spec `src/gh.clispec.yaml` — a gitignored build artifact this
+# script regenerates first, so a fresh checkout gates clean. Nothing else
+# covers `.hnl` — `cargo` never sees them.
 #
 # Usage:  HNL=../host-cli/target/debug/hnl scripts/hnl-gate.sh
 set -euo pipefail
 
 SRC_DIR="${SRC_DIR:-src}"
+GEN_DIR="${GEN_DIR:-generated}"
+SPEC="${SPEC:-$SRC_DIR/gh.clispec.yaml}"
 HNL="${HNL:-../host-cli/target/debug/hnl}"
 if [ ! -x "$HNL" ]; then
   echo "error: no hnl binary at '$HNL'" >&2
   echo "       build it:   (cd ../host-cli && cargo build --bin hnl)" >&2
   exit 1
 fi
+
+# Regenerate the port/adapter pair from the committed spec first — spec
+# mode is deterministic (no `--help` probing). Always re-emit so the gate
+# covers the current spec, not a stale artifact.
+if [ -f "$SPEC" ]; then
+  echo "== hnl sdkgen cli $SPEC --output $GEN_DIR/gh =="
+  "$HNL" sdkgen cli "$SPEC" --output "$GEN_DIR/gh"
+fi
+
+scan_dirs=("$SRC_DIR")
+[ -d "$GEN_DIR" ] && scan_dirs+=("$GEN_DIR")
 
 # The corpus is mixed-dialect: canonical `.hnl` and arrow/contract `.hnl`
 # (`~>`, `cap`/`op`/`handl`/`tag` declarations, a leading `axiom`). The
@@ -60,10 +76,10 @@ while IFS= read -r f; do
   else
     skipped=$((skipped + 1))
   fi
-done < <(find "$SRC_DIR" -name '*.hnl' | sort)
+done < <(find "${scan_dirs[@]}" -name '*.hnl' | sort)
 
 if [ "${#sources[@]}" -eq 0 ] && [ "${#tests[@]}" -eq 0 ]; then
-  echo "only non-canonical (arrow/contract) sources under $SRC_DIR/ — gate skipped"
+  echo "only non-canonical (arrow/contract) sources under ${scan_dirs[*]}/ — gate skipped"
   exit 0
 fi
 

@@ -1,4 +1,4 @@
-from "./gh" import * as m
+from "generated/gh-cli-host/gh" import * as m
 
 --- smoke: real `gh` invocations through the generated adapter
 test_alias_list := assert tag.untag(m.gh_alias_list()).value.code = 0

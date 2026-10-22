@@ -1,0 +1,623 @@
+name: gh
+options:
+  version:
+    flag: --version
+    kind: flag
+commands:
+  agent-task:
+    about: Work with agent tasks (preview)
+    commands:
+      create:
+        about: Create an agent task (preview)
+      list:
+        about: List agent tasks (preview)
+      view:
+        about: View an agent task session (preview)
+  alias:
+    about: Create command shortcuts
+    commands:
+      delete:
+        about: Delete set aliases
+      import:
+        about: Import aliases from a YAML file
+      list:
+        about: List your aliases
+      set:
+        about: Create a shortcut for a gh command
+  api:
+    about: Make an authenticated GitHub API request
+    options:
+      allow_escape_sequences:
+        flag: --allow-escape-sequences
+        kind: flag
+      cache:
+        flag: --cache
+        kind: string
+      field:
+        flag: --field
+        kind: string
+      header:
+        flag: --header
+        kind: string
+      hostname:
+        flag: --hostname
+        kind: string
+      include:
+        flag: --include
+        kind: flag
+      input:
+        flag: --input
+        kind: string
+      jq:
+        flag: --jq
+        kind: string
+      method:
+        flag: --method
+        kind: string
+      paginate:
+        flag: --paginate
+        kind: flag
+      preview:
+        flag: --preview
+        kind: string
+      raw_field:
+        flag: --raw-field
+        kind: string
+      silent:
+        flag: --silent
+        kind: flag
+      slurp:
+        flag: --slurp
+        kind: flag
+      template:
+        flag: --template
+        kind: string
+      verbose:
+        flag: --verbose
+        kind: flag
+  attestation:
+    about: Work with artifact attestations
+    commands:
+      download:
+        about: Download an artifact's attestations for offline use
+      trusted-root:
+        about: Output trusted_root.jsonl contents, likely for offline verification
+      verify:
+        about: Verify an artifact's integrity using attestations
+  auth:
+    about: Authenticate gh and git with GitHub
+    commands:
+      login:
+        about: Log in to a GitHub account
+      logout:
+        about: Log out of a GitHub account
+      refresh:
+        about: Refresh stored authentication credentials
+      setup-git:
+        about: Setup git with GitHub CLI
+      status:
+        about: Display active account and authentication state on each known GitHub host
+      switch:
+        about: Switch active GitHub account
+      token:
+        about: Print the authentication token gh uses for a hostname and account
+  browse:
+    about: Open repositories, issues, pull requests, and more in the browser
+    options:
+      actions:
+        flag: --actions
+        kind: flag
+      blame:
+        flag: --blame
+        kind: flag
+      branch:
+        flag: --branch
+        kind: string
+      commit:
+        flag: --commit
+        kind: string
+      no_browser:
+        flag: --no-browser
+        kind: flag
+      projects:
+        flag: --projects
+        kind: flag
+      releases:
+        flag: --releases
+        kind: flag
+      repo:
+        flag: --repo
+        kind: string
+      settings:
+        flag: --settings
+        kind: flag
+      wiki:
+        flag: --wiki
+        kind: flag
+  cache:
+    about: Manage GitHub Actions caches
+    options:
+      repo:
+        flag: --repo
+        kind: string
+    commands:
+      delete:
+        about: Delete GitHub Actions caches
+      list:
+        about: List GitHub Actions caches
+  co:
+    about: Alias for "pr checkout"
+    options:
+      branch:
+        flag: --branch
+        kind: string
+      detach:
+        flag: --detach
+        kind: flag
+      force:
+        flag: --force
+        kind: flag
+      recurse_submodules:
+        flag: --recurse-submodules
+        kind: flag
+      repo:
+        flag: --repo
+        kind: string
+      worktree:
+        flag: --worktree
+        kind: string
+  codespace:
+    about: Connect to and manage codespaces
+    commands:
+      code:
+        about: Open a codespace in Visual Studio Code
+      cp:
+        about: Copy files between local and remote file systems
+      create:
+        about: Create a codespace
+      delete:
+        about: Delete codespaces
+      edit:
+        about: Edit a codespace
+      jupyter:
+        about: Open a codespace in JupyterLab
+      list:
+        about: List codespaces
+      logs:
+        about: Access codespace logs
+      ports:
+        about: List ports in a codespace
+      rebuild:
+        about: Rebuild a codespace
+      ssh:
+        about: SSH into a codespace
+      stop:
+        about: Stop a running codespace
+      view:
+        about: View details about a codespace
+  completion:
+    about: Generate shell completion scripts
+    options:
+      shell:
+        flag: --shell
+        kind: string
+  config:
+    about: Manage configuration for gh
+    commands:
+      clear-cache:
+        about: Clear the cli cache
+      get:
+        about: Print the value of a given configuration key
+      list:
+        about: Print a list of configuration keys and values
+      set:
+        about: Update configuration with a value for the given key
+  copilot:
+    about: Run the GitHub Copilot CLI (preview)
+    options:
+      remove:
+        flag: --remove
+        kind: flag
+  discussion:
+    about: Work with GitHub Discussions (preview)
+    options:
+      repo:
+        flag: --repo
+        kind: string
+    commands:
+      comment:
+        about: Add, edit, or delete a comment or a reply on a discussion (preview)
+      create:
+        about: Create a new discussion (preview)
+      edit:
+        about: Edit a discussion (preview)
+      list:
+        about: List discussions in a repository (preview)
+      view:
+        about: View a discussion (preview)
+  extension:
+    about: Manage gh extensions
+    commands:
+      browse:
+        about: Enter a UI for browsing, adding, and removing extensions
+      create:
+        about: Create a new extension
+      exec:
+        about: Execute an installed extension
+      install:
+        about: Install a gh extension from a repository
+      list:
+        about: List installed extension commands
+      remove:
+        about: Remove an installed extension
+      search:
+        about: Search extensions to the GitHub CLI
+      upgrade:
+        about: Upgrade installed extensions
+  gist:
+    about: Manage gists
+    commands:
+      clone:
+        about: Clone a gist locally
+      create:
+        about: Create a new gist
+      delete:
+        about: Delete a gist
+      edit:
+        about: Edit one of your gists
+      list:
+        about: List your gists
+      rename:
+        about: Rename a file in a gist
+      view:
+        about: View a gist
+  gpg-key:
+    about: Manage GPG keys
+    commands:
+      add:
+        about: Add a GPG key to your GitHub account
+      delete:
+        about: Delete a GPG key from your GitHub account
+      list:
+        about: Lists GPG keys in your GitHub account
+  issue:
+    about: Manage issues
+    options:
+      repo:
+        flag: --repo
+        kind: string
+    commands:
+      close:
+        about: Close issue
+      comment:
+        about: Add a comment to an issue
+      create:
+        about: Create a new issue
+      delete:
+        about: Delete issue
+      develop:
+        about: Manage linked branches for an issue
+      edit:
+        about: Edit issues
+      list:
+        about: List issues in a repository
+      lock:
+        about: Lock issue conversation
+      pin:
+        about: Pin an issue
+      reopen:
+        about: Reopen issue
+      status:
+        about: Show status of relevant issues
+      transfer:
+        about: Transfer issue to another repository
+      unlock:
+        about: Unlock issue conversation
+      unpin:
+        about: Unpin an issue
+      view:
+        about: View an issue
+  label:
+    about: Manage labels
+    options:
+      repo:
+        flag: --repo
+        kind: string
+    commands:
+      clone:
+        about: Clones labels from one repository to another
+      create:
+        about: Create a new label
+      delete:
+        about: Delete a label from a repository
+      edit:
+        about: Edit a label
+      list:
+        about: List labels in a repository
+  licenses:
+    about: View third-party license information
+  org:
+    about: Manage organizations
+    commands:
+      list:
+        about: List organizations for the authenticated user.
+  pr:
+    about: Manage pull requests
+    options:
+      repo:
+        flag: --repo
+        kind: string
+    commands:
+      checkout:
+        about: Check out a pull request in git
+      checks:
+        about: Show CI status for a single pull request
+      close:
+        about: Close a pull request
+      comment:
+        about: Add a comment to a pull request
+      create:
+        about: Create a pull request
+      diff:
+        about: View changes in a pull request
+      edit:
+        about: Edit a pull request
+      list:
+        about: List pull requests in a repository
+      lock:
+        about: Lock pull request conversation
+      merge:
+        about: Merge a pull request
+      ready:
+        about: Mark a pull request as ready for review
+      reopen:
+        about: Reopen a pull request
+      revert:
+        about: Revert a pull request
+      review:
+        about: Add a review to a pull request
+      status:
+        about: Show status of relevant pull requests
+      unlock:
+        about: Unlock pull request conversation
+      update-branch:
+        about: Update a pull request branch
+      view:
+        about: View a pull request
+  preview:
+    about: Execute previews for gh features
+    commands:
+      prompter:
+        about: Execute a test program to preview the prompter
+  project:
+    about: Work with GitHub Projects.
+    commands:
+      close:
+        about: Close a project
+      copy:
+        about: Copy a project
+      create:
+        about: Create a project
+      delete:
+        about: Delete a project
+      edit:
+        about: Edit a project
+      field-create:
+        about: Create a field in a project
+      field-delete:
+        about: Delete a field in a project
+      field-list:
+        about: List the fields in a project
+      item-add:
+        about: Add a pull request or an issue to a project
+      item-archive:
+        about: Archive an item in a project
+      item-create:
+        about: Create a draft issue item in a project
+      item-delete:
+        about: Delete an item from a project by ID
+      item-edit:
+        about: Edit an item in a project
+      item-list:
+        about: List the items in a project
+      link:
+        about: Link a project to a repository or a team
+      list:
+        about: List the projects for an owner
+      mark-template:
+        about: Mark a project as a template
+      unlink:
+        about: Unlink a project from a repository or a team
+      view:
+        about: View a project
+  release:
+    about: Manage releases
+    options:
+      repo:
+        flag: --repo
+        kind: string
+    commands:
+      create:
+        about: Create a new release
+      delete:
+        about: Delete a release
+      delete-asset:
+        about: Delete an asset from a release
+      download:
+        about: Download release assets
+      edit:
+        about: Edit a release
+      list:
+        about: List releases in a repository
+      upload:
+        about: Upload assets to a release
+      verify:
+        about: Verify the attestation for a release
+      verify-asset:
+        about: Verify that a given asset originated from a release
+      view:
+        about: View information about a release
+  repo:
+    about: Manage repositories
+    commands:
+      archive:
+        about: Archive a repository
+      autolink:
+        about: Manage autolink references
+      clone:
+        about: Clone a repository locally
+      create:
+        about: Create a new repository
+      delete:
+        about: Delete a repository
+      deploy-key:
+        about: Manage deploy keys in a repository
+      edit:
+        about: Edit repository settings
+      fork:
+        about: Create a fork of a repository
+      gitignore:
+        about: List and view available repository gitignore templates
+      license:
+        about: Explore repository licenses
+      list:
+        about: List repositories owned by user or organization
+      read-dir:
+        about: List a directory in a repository (preview)
+      read-file:
+        about: Read a file from a repository (preview)
+      rename:
+        about: Rename a repository
+      set-default:
+        about: Configure default repository for this directory
+      sync:
+        about: Sync a repository
+      unarchive:
+        about: Unarchive a repository
+      view:
+        about: View a repository
+  ruleset:
+    about: View info about repo rulesets
+    options:
+      repo:
+        flag: --repo
+        kind: string
+    commands:
+      check:
+        about: View rules that would apply to a given branch
+      list:
+        about: List rulesets for a repository or organization
+      view:
+        about: View information about a ruleset
+  run:
+    about: View details about workflow runs
+    options:
+      repo:
+        flag: --repo
+        kind: string
+    commands:
+      cancel:
+        about: Cancel a workflow run
+      delete:
+        about: Delete a workflow run
+      download:
+        about: Download artifacts generated by a workflow run
+      list:
+        about: List recent workflow runs
+      rerun:
+        about: Rerun a run
+      view:
+        about: View a summary of a workflow run
+      watch:
+        about: Watch a run until it completes, showing its progress
+  search:
+    about: Search for repositories, issues, and pull requests
+    commands:
+      code:
+        about: Search within code
+      commits:
+        about: Search for commits
+      issues:
+        about: Search for issues
+      prs:
+        about: Search for pull requests
+      repos:
+        about: Search for repositories
+  secret:
+    about: Manage GitHub secrets
+    options:
+      repo:
+        flag: --repo
+        kind: string
+    commands:
+      delete:
+        about: Delete secrets
+      list:
+        about: List secrets
+      set:
+        about: Create or update secrets
+  skill:
+    about: Install and manage agent skills (preview)
+    commands:
+      install:
+        about: Install agent skills from a GitHub repository (preview)
+      list:
+        about: List installed skills (preview)
+      preview:
+        about: Preview a skill from a GitHub repository (preview)
+      publish:
+        about: Validate and publish skills to a GitHub repository (preview)
+      search:
+        about: Search for skills across GitHub (preview)
+      update:
+        about: Update installed skills to their latest versions (preview)
+  ssh-key:
+    about: Manage SSH keys
+    commands:
+      add:
+        about: Add an SSH key to your GitHub account
+      delete:
+        about: Delete an SSH key from your GitHub account
+      list:
+        about: Lists SSH keys in your GitHub account
+  status:
+    about: Print information about relevant issues, pull requests, and notifications across repositories
+    options:
+      exclude:
+        flag: --exclude
+        kind: string
+      org:
+        flag: --org
+        kind: string
+  variable:
+    about: Manage GitHub Actions variables
+    options:
+      repo:
+        flag: --repo
+        kind: string
+    commands:
+      delete:
+        about: Delete variables
+      get:
+        about: Get variables
+      list:
+        about: List variables
+      set:
+        about: Create or update variables
+  workflow:
+    about: View details about GitHub Actions workflows
+    options:
+      repo:
+        flag: --repo
+        kind: string
+    commands:
+      disable:
+        about: Disable a workflow
+      enable:
+        about: Enable a workflow
+      list:
+        about: List workflows
+      run:
+        about: Run a workflow by creating a workflow_dispatch event
+      view:
+        about: View the summary of a workflow
