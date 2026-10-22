@@ -3,7 +3,7 @@
 #
 # Committed sources live in `src/` (one package per repo, ADR-0128 split);
 # the generated port/adapter pair is emitted under `generated/` from the
-# committed spec `src/gh.clispec.yaml` — a gitignored build artifact this
+# committed spec `specs/gh.clispec.yaml` — a gitignored build artifact this
 # script regenerates first, so a fresh checkout gates clean. Nothing else
 # covers `.hnl` — `cargo` never sees them.
 #
@@ -12,7 +12,7 @@ set -euo pipefail
 
 SRC_DIR="${SRC_DIR:-src}"
 GEN_DIR="${GEN_DIR:-generated}"
-SPEC="${SPEC:-$SRC_DIR/gh.clispec.yaml}"
+SPEC="${SPEC:-specs/gh.clispec.yaml}"
 HNL="${HNL:-../host-cli/target/debug/hnl}"
 if [ ! -x "$HNL" ]; then
   echo "error: no hnl binary at '$HNL'" >&2
