@@ -1,6 +1,6 @@
 from "generated/gh-cli-host/gh" import * as m
 
 --- smoke: real `gh` invocations through the generated adapter
-test_alias_list := assert tag.untag(m.gh_alias_list()).value.code = 0
-test_config_list := assert tag.untag(m.gh_config_list()).value.code = 0
-test_completion := assert tag.untag(m.gh_completion({ shell: "bash" })).value.code = 0
+test_alias_list := assert m.gh_alias_list().value.code = 0
+test_config_list := assert m.gh_config_list().value.code = 0
+test_completion := assert m.gh_completion({ shell: "bash" }).value.code = 0
