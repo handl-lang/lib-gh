@@ -28,3 +28,7 @@ Gate (`typecheck` + `lint` + `test`, regenerates `generated/` first):
 ```bash
 HNL=../host-cli/target/debug/hnl ./ci.sh        # or scripts/hnl-gate.sh
 ```
+
+## License
+
+MIT.
