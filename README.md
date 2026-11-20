@@ -1,4 +1,6 @@
-# lib-gh — generated handl SDK for the GitHub CLI
+# lib-gh
+
+Generated handl SDK for the GitHub CLI.
 
 The committed source of truth is the spec, `specs/gh.clispec.yaml` (a
 resolved `*.clispec.yaml` command tree for `gh`). Everything under
@@ -23,7 +25,9 @@ hnl sdkgen cli gh --config sdkgen-probe.yaml --output generated/gh
 #                     max_depth: 2
 ```
 
-Gate (`typecheck` + `lint` + `test`, regenerates `generated/` first):
+## Gate
+
+`typecheck` + `lint` + `test`, regenerates `generated/` first:
 
 ```bash
 HNL=../host-cli/target/debug/hnl ./ci.sh        # or scripts/hnl-gate.sh
