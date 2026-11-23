@@ -6,7 +6,7 @@
 
 [[repos]]
 name = "handl-lang/lib-gh"
-dir = "/home/luis/GitHub/handl-lang/lib-gh"
+dir = "~//GitHub/handl-lang/lib-gh"
 branch = "refs/heads/main"
   [repos.runner]
   kind = "script"
