@@ -7,7 +7,7 @@ resolved `*.clispec.yaml` command tree for `gh`). Everything under
 `generated/` is a **gitignored build artifact** emitted by codegen-cli:
 
 - `generated/gh/gh.hnl` — the port (types + arrow signatures),
-- `generated/gh-cli-host/gh.hnl` — the adapter over `lib-cli`'s `cli-c`
+- `generated/gh/gh-cli-host/gh.hnl` — the adapter over `lib-cli`'s `cli-c`
   (posix_spawnp, no shell).
 
 Regenerate (spec mode — deterministic, no `--help` probing):

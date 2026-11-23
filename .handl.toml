@@ -1,9 +1,11 @@
 # handl manifest for the `lib-gh` repo: the generated `gh` port +
 # `gh-cli-host` adapter over lib-cli's `cli-c` (posix_spawnp, no shell).
-# The committed source of truth is the spec, `src/gh.clispec.yaml`;
+# The committed source of truth is the spec, `specs/gh.clispec.yaml`;
 # `generated/` is a gitignored build artifact — regenerate with
-#   hnl codegen cli src/gh.clispec.yaml --output generated/gh
+#   hnl codegen cli specs/gh.clispec.yaml --output generated/gh
 # (the gate, scripts/hnl-gate.sh, does this first when it is missing).
+# Adapters nest inside the output dir (PL-004 ArtifactRef layout):
+# `gh-cli-host` lands at `generated/gh/gh-cli-host`.
 
 [dependencies]
 cli = { path = "../lib-cli/src/cli" }
@@ -13,4 +15,4 @@ cli-c = { path = "../lib-cli/src/cli-c" }
 # (same convention as lib-cli/lib-tensor/lib-str-c). They point into
 # `generated/`, so run the gate (or codegen) once after checkout.
 gh = { path = "generated/gh" }
-gh-cli-host = { path = "generated/gh-cli-host" }
+gh-cli-host = { path = "generated/gh/gh-cli-host" }

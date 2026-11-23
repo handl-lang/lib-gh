@@ -2,7 +2,7 @@
 ---
 --- `gh` is the generated port (types + arrow signatures), `gh-cli-host`
 --- the generated adapter over `cli-c`. The committed source of truth is
---- the spec, `src/gh.clispec.yaml`; the modules themselves are emitted
+--- the spec, `specs/gh.clispec.yaml`; the modules themselves are emitted
 --- under `generated/` (gitignored) by
---- `hnl codegen cli src/gh.clispec.yaml --output generated/gh`.
+--- `hnl codegen cli specs/gh.clispec.yaml --output generated/gh`.
 { modules: ["gh", "gh-cli-host"], description: "Generated handl SDK for the GitHub CLI.", license: "MIT" }
