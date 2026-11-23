@@ -1,5 +1,5 @@
 # Generated build artifacts — regenerate with
-#   hnl sdkgen cli src/gh.clispec.yaml --output generated/gh
+#   hnl codegen cli src/gh.clispec.yaml --output generated/gh
 generated/
 
 Cargo.lock

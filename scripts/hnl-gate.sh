@@ -24,8 +24,8 @@ fi
 # mode is deterministic (no `--help` probing). Always re-emit so the gate
 # covers the current spec, not a stale artifact.
 if [ -f "$SPEC" ]; then
-  echo "== hnl sdkgen cli $SPEC --output $GEN_DIR/gh =="
-  "$HNL" sdkgen cli "$SPEC" --output "$GEN_DIR/gh"
+  echo "== hnl codegen cli $SPEC --output $GEN_DIR/gh =="
+  "$HNL" codegen cli "$SPEC" --output "$GEN_DIR/gh"
 fi
 
 scan_dirs=("$SRC_DIR")
