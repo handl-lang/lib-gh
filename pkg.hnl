@@ -5,4 +5,4 @@
 --- the spec, `specs/gh.clispec.yaml`; the modules themselves are emitted
 --- under `generated/` (gitignored) by
 --- `hnl codegen cli specs/gh.clispec.yaml --output generated/gh`.
-{ modules: ["gh", "gh-cli-host"], description: "Generated handl SDK for the GitHub CLI.", license: "MIT" }
+{ modules: ["gh", "gh-cli-host"], name: "gh", description: "Generated handl SDK for the GitHub CLI.", license: "MIT" }
