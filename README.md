@@ -30,7 +30,7 @@ hnl codegen cli gh --config codegen-probe.yaml --output generated/gh
 `typecheck` + `lint` + `test`, regenerates `generated/` first:
 
 ```bash
-HNL=../host-cli/target/debug/hnl ./ci.sh        # or scripts/hnl-gate.sh
+HNL=../host-cli/target/debug/hnl scripts/hnl-gate.sh  # or scripts/hnl-gate.sh
 ```
 
 ## License
